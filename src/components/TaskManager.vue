@@ -5,23 +5,23 @@
       :workersList="workersData"
       @selected="onTaskSelected"
     />
-    <woker-list
-      v-for="wokerData in selectedTasksList"
-      :key="wokerData.workerId"
-      :workerData="getWokerById(wokerData.workerId)"
-      :wokerTasksData="getTasksByIdList(wokerData.tasks)"
+    <worker-list
+      v-for="workerData in selectedTasksList"
+      :key="workerData.workerId"
+      :workerData="getWorkerById(workerData.workerId)"
+      :workerTasksData="getTasksByIdList(workerData.tasks)"
     />
   </div>
 </template>
 
 <script>
 import TaskSelector from "./TaskSelector.vue";
-import WokerList from "./WokerList.vue";
+import WorkerList from "./WorkerList.vue";
 export default {
   name: "TaskManager",
   components: {
     TaskSelector,
-    WokerList,
+    WorkerList,
   },
   props: {
     tasksData: {
@@ -48,15 +48,15 @@ export default {
     };
   },
   methods: {
-    getWokerById(id) {
-      return this.workersData.find((woker) => woker.id === id);
+    getWorkerById(id) {
+      return this.workersData.find((worker) => worker.id === id);
     },
     getTasksByIdList(taskIdList) {
       return this.tasksData.filter((task) => taskIdList.includes(task.id));
     },
-    // onTaskSelected(selectedData) {
-
-    // }
+    onTaskSelected() {
+      console.log('onTaskSelected');
+    }
   },
 };
 </script>

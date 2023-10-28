@@ -1,8 +1,8 @@
 <template>
   <div class="parent__list">
-    <div class="list__name-worker">{{ wokerData.name }}</div>
-    <woker-task-item
-      v-for="task in wokerTasksData"
+    <div class="list__name-worker">{{ workerData.name }}</div>
+    <worker-task-item
+      v-for="task in workerTasksData"
       :key="task.id"
       :task="task"
       @deleteTask="$emit('deleteTask', task.id)"
@@ -11,18 +11,18 @@
 </template>
 
 <script>
-import WokerTaskItem from "./WokerTaskItem.vue";
+import WorkerTaskItem from "@/components/WorkerTaskItem.vue";
 export default {
-  name: "WokerList",
+  name: "WorkerList",
   components: {
-    WokerTaskItem,
+    WorkerTaskItem,
   },
   props: {
-    wokerData: {
+    workerData: {
       type: Object,
       required: true,
     },
-    wokerTasksData: {
+    workerTasksData: {
       type: Array,
       required: true,
     },
