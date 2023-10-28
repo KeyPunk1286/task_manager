@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: "WokerTaskItem",
+  name: "WorkerTaskItem",
   props: {
     task: {
       type: Object,
